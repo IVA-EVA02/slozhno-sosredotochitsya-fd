@@ -9,4 +9,130 @@
     Так стили написанные ниже будут иметь больший вес,
     чем стили в медиазапросе предпочтений пользователя
   */
+  /*Фоновое изображение*/
+  --page-background-image: url(../images/cover-image-light.png);
+
+  /*Цвета*/
+  --page-background-color: #fff1f7;
+  --decor-color: #353430;
+  --accent-color: #ff8dcb;
+  --h1-color: #ffc2e6;
+  --text-color: #353430;
+}
+
+.theme-light {
+  /*Меняем стили для светлой темы (принудительный выбор темы по кнопке "день").*/
+
+  .decorated-zone::before {
+    border-color: var(--decor-color, #353430);
+  }
+
+  .decorated-zone::after {
+    border-color: var(--decor-color, #353430);
+  }
+
+  .decorated-element {
+    display: none;
+  }
+
+  .header__theme-menu-button {
+    color: var(--decor-color, #353430);
+  }
+
+  .header__theme-menu-button:focus-visible {
+    /*Задаём фокус у кнопки в виде нижней границы при нажатии Tab.*/
+    border-block-end: 1px solid currentColor;
+  }
+
+  .header__theme-menu-button:hover {
+    /*Задаём при наведении границу по всем сторонам кнопки согласно макету.*/
+    outline: 1px solid rgb(50 49 45 / 0.4);
+  }
+
+  .header__theme-menu-button_active {
+    /*Если кнопка выбрана в светлой теме, 
+  задаем ей границу светлой темы (для кнопок "день" и "авто").*/
+    outline: 1px solid currentColor;
+    pointer-events: none; /*Делаем активную кнопку недоступной для клика (обводки
+  по hover не происходит).*/
+  }
+
+  .section__heading {
+    color: var(--text-color, #353430);
+  }
+
+  .card-text__link:focus-visible {
+    /*Задаём фокус у ссылки при нажатии Tab.*/
+    outline: 1px solid currentColor;
+  }
+
+  .card-text__link:hover {
+    /*Задаём подчеркивание текста ссылки при наведении согласно макету.*/
+    border-block-end: 1px solid currentColor;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    /*Фоновое изображение*/
+    --page-background-image: url(../images/cover-image-light.png);
+
+    /*Цвета*/
+    --page-background-color: #fff1f7;
+    --decor-color: #353430;
+    --accent-color: #ff8dcb;
+    --h1-color: #ffc2e6;
+    --text-color: #353430;
+  }
+
+  .theme-auto {
+    /*Меняем стили для светлой темы (пользовательская тема системы компьютера по кнопке "авто").*/
+
+    .decorated-zone::before {
+      border-color: var(--decor-color, #353430);
+    }
+
+    .decorated-zone::after {
+      border-color: var(--decor-color, #353430);
+    }
+
+    .decorated-element {
+      display: none;
+    }
+
+    .header__theme-menu-button {
+      color: var(--decor-color, #353430);
+    }
+
+    .header__theme-menu-button:focus-visible {
+      /*Задаём фокус у кнопки в виде нижней границы при нажатии Tab.*/
+      border-block-end: 1px solid currentColor;
+    }
+
+    .header__theme-menu-button:hover {
+      /*Задаём при наведении границу по всем сторонам кнопки согласно макету.*/
+      outline: 1px solid rgb(50 49 45 / 0.4);
+    }
+
+    .header__theme-menu-button_active {
+      /*Если кнопка выбрана в светлой теме, 
+  задаем ей границу светлой темы (для кнопок "день" и "авто").*/
+      outline: 1px solid currentColor;
+      pointer-events: none;
+    }
+
+    .section__heading {
+      color: var(--text-color, #353430);
+    }
+
+    .card-text__link:focus-visible {
+      /*Задаём фокус у ссылки при нажатии Tab.*/
+      outline: 1px solid currentColor;
+    }
+
+    .card-text__link:hover {
+      /*Задаём подчеркивание текста ссылки при наведении согласно макету.*/
+      border-block-end: 1px solid currentColor;
+    }
+  }
 }

@@ -2,3 +2,82 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
+
+:root {
+  /*Фоновое изображение*/
+  --page-background-image: url(../images/cover-image-dark.png);
+
+  /*Шрифт*/
+  --main-font: "IBM Plex Mono";
+
+  /*Размеры шрифта*/
+  --h1-size: clamp(
+    7.25rem,
+    7.0115rem + 1.0178vw,
+    7.5rem
+  ); /*Генерируем формулу на сайте Font-size Clamp Generator.*/
+  /*Для мобильной версии берём ширину окна просмотра от 375px до 768px и размер шрифта от 116px до 120px*/
+  --text-size: 1.125rem; /*Переводим 18px в rem (18px / 16px) = 1.125rem.*/
+
+  /*Размеры блоков*/
+  --header-footer__min-block-size: 41.75rem; /*668px.*/
+  --header__text-block__inline-size: clamp(
+    22.1875rem,
+    21.6508rem + 2.2901vw,
+    22.75rem
+  );
+
+  /*Внутренние отступы*/
+  --page-padding-inline: clamp(
+    0.625rem,
+    0.0286rem + 2.5445vw,
+    1.25rem
+  ); /*Отступ от 10px до 20px.*/
+  --button-padding: 0 0.8125rem; /*Переводим 13px в rem (13px / 16px) = 0.8125rem.*/
+  --theme-menu-padding-top: clamp(
+    1.5625rem,
+    -5.2958rem + 29.2621vw,
+    8.75rem
+  ); /*От 25px до 140px.*/
+
+  /*Высота линии*/
+  --h1-line-height: 83%;
+  --text-line-height: 130%; /*Переводим из абсолютных единиц в относительные 100% * 23.4px / 18px = 130%.*/
+  --button-line-height: 100%;
+  --link-line-height: 100%;
+
+  /*Цвета*/
+  --page-background-color: #000028;
+  --decor-color: #000028;
+  --accent-color: #ff0070;
+  --h1-color: #db00ff;
+  --text-color: #f1b2ce;
+
+  /*Начертания*/
+
+  --regular-font-weight: 400;
+  --bold-font-weight: 700;
+
+  /*Отступы между элементами внутри гридов и флексбоксов*/
+
+  --page-gap: clamp(
+    2.5rem,
+    1.3073rem + 5.0891vw,
+    3.75rem
+  ); /*Генерируем формулу на сайте Font-size Clamp Generator.*/
+  /*Для мобильной версии берём ширину окна просмотра от 375px до 768px и размер отступа от 40px до 60px.*/
+  --main-gap: clamp(
+    3.125rem,
+    1.3359rem + 7.6336vw,
+    5rem
+  ); /*Отступ от 50px до 80px.*/
+  --section-gap: 1.25rem; /*Отступ 20px сохраняется.*/
+  --section-card-gap: 0.625rem; /*Отступ 10px.*/
+  --theme-menu-gap: 0.625rem; /*Отступ 10px.*/
+  --gallary-gap: clamp(
+    0.625rem,
+    0.0286rem + 2.5445vw,
+    1.25rem
+  ); /*Отступ от 10px до 20px.*/
+  --gallary__list-gap: 0.625rem; /*Отступ 10px.*/
+}
