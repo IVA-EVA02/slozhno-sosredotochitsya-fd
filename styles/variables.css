@@ -14,7 +14,7 @@
 
   /*Размеры шрифта*/
 
-  --h1-size: clamp(
+  --title-size: clamp(
     7.25rem,
     7.0115rem + 1.0178vw,
     7.5rem
@@ -47,7 +47,7 @@
 
   /*Высота линии*/
 
-  --h1-line-height: 83%;
+  --title-line-height: 83%;
   --text-line-height: 130%; /*Переводим из абсолютных единиц в относительные 100% * 23.4px / 18px = 130%.*/
   --button-line-height: 100%;
   --link-line-height: 100%;
@@ -57,7 +57,7 @@
   --page-background-color: #000028;
   --decor-color: #000028;
   --accent-color: #ff0070;
-  --h1-color: #db00ff;
+  --title-color: #db00ff;
   --text-color: #f1b2ce;
 
   /*Начертания*/

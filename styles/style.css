@@ -30,9 +30,9 @@ html {
   /*Задаём класс для общих стилей заголовка футтера и хэддера.*/
   font-family: inherit;
   font-weight: var(--bold-font-weight, 700);
-  font-size: var(--h1-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
-  line-height: var(--h1-line-height, 83%);
-  color: var(--h1-color, #db00ff);
+  font-size: var(--title-size, clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem));
+  line-height: var(--title-line-height, 83%);
+  color: var(--title-color, #db00ff);
 }
 
 .title-decor {
@@ -254,10 +254,6 @@ html {
   color: var(--accent-color, #ff0070);
 }
 
-.section-how__span {
-  display: block; /*Делаем span блочным как и h3, чтобы одинаково было в макете.*/
-}
-
 .section__card-list {
   display: grid; /*Задаём грид для списка карточек для последующей удобной адаптации под размеры экрана.*/
   grid-template-columns: 1fr;
@@ -357,9 +353,9 @@ html {
   }
 
   .title-general-styles {
-    --h1-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    --title-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     /*Постепенно меняем шрифт от 120px до 157px.*/
-    font-size: var(--h1-size, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
+    font-size: var(--title-size, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
   }
 
   .header__text {
@@ -394,9 +390,9 @@ html {
   }
 
   .title-general-styles {
-    --h1-size: 9.8125rem;
+    --title-size: 9.8125rem;
     /*Оставляем шрифт 157px.*/
-    font-size: var(--h1-size, 9.8125rem);
+    font-size: var(--title-size, 9.8125rem);
   }
 
   .header__text {
