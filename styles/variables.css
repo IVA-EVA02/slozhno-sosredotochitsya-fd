@@ -5,12 +5,15 @@
 
 :root {
   /*Фоновое изображение*/
+
   --page-background-image: url(../images/cover-image-dark.png);
 
   /*Шрифт*/
+
   --main-font: "IBM Plex Mono";
 
   /*Размеры шрифта*/
+
   --h1-size: clamp(
     7.25rem,
     7.0115rem + 1.0178vw,
@@ -20,6 +23,7 @@
   --text-size: 1.125rem; /*Переводим 18px в rem (18px / 16px) = 1.125rem.*/
 
   /*Размеры блоков*/
+
   --header-footer__min-block-size: 41.75rem; /*668px.*/
   --header__text-block__inline-size: clamp(
     22.1875rem,
@@ -28,7 +32,8 @@
   );
 
   /*Внутренние отступы*/
-  --page-padding-inline: clamp(
+
+  --section-padding-inline: clamp(
     0.625rem,
     0.0286rem + 2.5445vw,
     1.25rem
@@ -41,12 +46,14 @@
   ); /*От 25px до 140px.*/
 
   /*Высота линии*/
+
   --h1-line-height: 83%;
   --text-line-height: 130%; /*Переводим из абсолютных единиц в относительные 100% * 23.4px / 18px = 130%.*/
   --button-line-height: 100%;
   --link-line-height: 100%;
 
   /*Цвета*/
+
   --page-background-color: #000028;
   --decor-color: #000028;
   --accent-color: #ff0070;
@@ -80,4 +87,16 @@
     1.25rem
   ); /*Отступ от 10px до 20px.*/
   --gallary__list-gap: 0.625rem; /*Отступ 10px.*/
+
+  /*Смещение псевдоэлементов*/
+
+  --decorated-offset: clamp(
+    0.625rem,
+    0.0286rem + 2.5445vw,
+    1.25rem
+  ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20px
+  под ширину экрана от 375px до 768px.*/
+  --decorated-element-right: clamp(2.4375rem, 1.8411rem + 2.5445vw, 3.0625rem);
+  /*Подгоняем с помощью PerfectPixel к макету 39px до 49px
+  под ширину экрана от 375px до 768px.*/
 }

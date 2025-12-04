@@ -22,10 +22,6 @@ html {
   background-position: center; /*Располагаем фоновое изображение по центру.*/
   background-size: cover; /*Закрываем фоном полностью страницу.*/
   background-attachment: fixed; /*Фиксируем фон на месте при прокрутке страницы.*/
-  padding-inline: var(
-    --page-padding-inline,
-    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
-  );
 }
 
 /*Общие классы для разных блоков страницы*/
@@ -58,13 +54,15 @@ html {
 .decorated-zone::before {
   content: "";
   position: absolute;
-  top: clamp(
-    0.625rem,
-    0.0286rem + 2.5445vw,
-    1.25rem
+  top: var(
+    --decorated-offset,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
   ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20 px
   под ширину экрана от 375px до 768px.*/
-  right: 0;
+  right: var(
+    --decorated-offset,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
+  );
   width: 25px;
   height: 25px;
   background-color: transparent;
@@ -77,13 +75,16 @@ html {
 .decorated-zone::after {
   content: "";
   position: absolute;
-  bottom: clamp(
-    0.625rem,
-    0.0286rem + 2.5445vw,
-    1.25rem
+  bottom: var(
+    --decorated-offset,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
   ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20 px
   под ширину экрана от 375px до 768px.*/
-  left: 0;
+  left: var(
+    --decorated-offset,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
+  ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20 px
+  под ширину экрана от 375px до 768px.*/
   width: 25px;
   height: 25px;
   background-color: transparent;
@@ -104,18 +105,25 @@ html {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
+  padding-inline: var(
+    --section-padding-inline,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
+  );
 }
 
 .decorated-element {
   /*Задаём декоративный элемент REC.*/
   position: absolute;
-  top: clamp(
-    0.625rem,
-    0.0286rem + 2.5445vw,
-    1.25rem
+  top: var(
+    --decorated-offset,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
   ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20 px
   под ширину экрана от 375px до 768px.*/
-  right: 27px; /*Подгоняем с помощью PerfectPixel к макету.*/
+  right: var(
+    --decorated-element-right,
+    clamp(2.4375rem, 1.8411rem + 2.5445vw, 3.0625rem)
+  );
+  /*Подгоняем с помощью PerfectPixel к макету.*/
   font-family: inherit;
   font-weight: var(--regular-font-weight, 400);
   font-size: var(--text-size, 1.125rem);
@@ -166,6 +174,11 @@ html {
   font-size: var(--text-size, 1.125rem);
   line-height: var(--button-line-height, 100%);
   padding: var(--button-padding, 0 0.8125rem);
+}
+
+.header__theme-menu-button::first-letter {
+  /*Делаем первую букву строчной.*/
+  text-transform: lowercase;
 }
 
 .header__theme-menu-button:focus {
@@ -221,6 +234,10 @@ html {
   display: flex;
   flex-direction: column;
   gap: var(--main-gap, clamp(3.125rem, 1.3359rem + 7.6336vw, 5rem));
+  padding-inline: var(
+    --section-padding-inline,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
+  );
 }
 
 .section {
@@ -317,6 +334,10 @@ html {
   display: flex; /*Располагаем заголовок по центру футтера.*/
   justify-content: center;
   align-items: center;
+  padding-inline: var(
+    --section-padding-inline,
+    clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
+  );
 }
 
 .footer__title {
@@ -413,9 +434,9 @@ html {
 @media (width >= 768px) {
   .header__cover-title {
     /*Смещаем спозиционированный элемент на отступ, 
-      установленный у body в 20px для второго и третьего макетов.*/
+      установленный у header в 20px для второго и третьего макетов.*/
     position: relative;
-    inset-inline-end: var(--page-padding-inline);
+    inset-inline-end: var(--section-padding-inline);
   }
 
   .main-content {
