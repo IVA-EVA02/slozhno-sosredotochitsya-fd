@@ -2,7 +2,10 @@
   Переменные для вашего проекта
   и их переопределение под различные устройства
 */
-
+/*В файле variables.css мы определяем переменные для темы по умолчанию 
+(указана первой в head разметки <meta name="color-scheme" content="dark light">). 
+Если юзер предпочитает темную тему, то именно она будет отображаться при клике на кнопку "авто".
+*/
 :root {
   /*Фоновое изображение*/
 
@@ -55,10 +58,15 @@
   /*Цвета*/
 
   --page-background-color: #000028;
+  --theme-menu-button-hover: rgb(255 0 112 / 0.4);
   --decor-color: #000028;
+  --decor-background-color: #ff0070; 
   --accent-color: #ff0070;
   --title-color: #db00ff;
   --text-color: #f1b2ce;
+  --header-shadow: #ff0070;
+  --link-shadow: #ff0070;
+  --footer-shadow: #ff0070;
 
   /*Начертания*/
 
@@ -88,7 +96,7 @@
   ); /*Отступ от 10px до 20px.*/
   --gallary__list-gap: 0.625rem; /*Отступ 10px.*/
 
-  /*Смещение псевдоэлементов*/
+  /*Смещение и отображение псевдоэлементов*/
 
   --decorated-offset: clamp(
     0.625rem,
@@ -96,7 +104,5 @@
     1.25rem
   ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20px
   под ширину экрана от 375px до 768px.*/
-  --decorated-element-right: clamp(2.4375rem, 1.8411rem + 2.5445vw, 3.0625rem);
-  /*Подгоняем с помощью PerfectPixel к макету 39px до 49px
-  под ширину экрана от 375px до 768px.*/
+  --decorated-element-display: block;
 }

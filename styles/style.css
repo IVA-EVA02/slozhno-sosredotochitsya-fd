@@ -37,8 +37,12 @@ html {
 
 .title-decor {
   /*Задаём декоративный приём для всех схожих элементов сайта.*/
-  background-color: var(--accent-color, #ff0070);
+  background-color: var(--decor-background-color, #ff0070);
   color: var(--decor-color, #000028);
+}
+
+.title-font {
+  /*Вынесем из класса .title-decor в отдельный класс общие свойства шрифта декоративных элементов.*/
   font-family: inherit;
   font-weight: var(--bold-font-weight, 700);
   font-size: var(--text-size, 1.125rem);
@@ -113,16 +117,14 @@ html {
 
 .decorated-element {
   /*Задаём декоративный элемент REC.*/
+  display: var(--decorated-element-display, block);
   position: absolute;
   top: var(
     --decorated-offset,
     clamp(0.625rem, 0.0286rem + 2.5445vw, 1.25rem)
   ); /*Подгоняем с помощью PerfectPixel к макету 10px до 20 px
   под ширину экрана от 375px до 768px.*/
-  right: var(
-    --decorated-element-right,
-    clamp(2.4375rem, 1.8411rem + 2.5445vw, 3.0625rem)
-  );
+  right: clamp(2.4375rem, 1.8411rem + 2.5445vw, 3.0625rem);
   /*Подгоняем с помощью PerfectPixel к макету.*/
   font-family: inherit;
   font-weight: var(--regular-font-weight, 400);
@@ -194,21 +196,21 @@ html {
 
 .header__theme-menu-button:hover {
   /*Задаём при наведении границу по всем сторонам кнопки согласно макету.*/
-  outline: 1px solid rgb(255 0 112 / 0.4); /*Для стилизации интерактивных 
+  outline: 1px solid var(--theme-menu-button-hover, rgb(255 0 112 / 0.4)); /*Для стилизации интерактивных 
   эл-тов по инструкции сказано использовать outline вместо border.*/
   cursor: pointer;
 }
 
 .header__theme-menu-button_active {
-  /*Если кнопка выбрана в тёмной теме, 
-  задаем ей границу тёмной темы (применится для кнопок "неон" и "авто").*/
+  /*Если кнопка выбрана в тёмной теме/светлой теме, 
+  задаем ей границу тёмной темы/светлой темы.*/
   outline: 1px solid var(--accent-color, #ff0070);
   pointer-events: none;
 }
 
 .header__cover-title {
   grid-row: 2;
-  text-shadow: 4px 4px 0 var(--accent-color, #ff0070); /*Задаём тень согласно макету.*/
+  text-shadow: 4px 4px 0 var(--header-shadow, #ff0070); /*Задаём тень согласно макету.*/
   align-self: center;
 }
 
@@ -266,7 +268,7 @@ html {
   gap: var(--section-card-gap, 0.625rem);
 }
 
-.section-how__card-heading__title-decor {
+.section-how__card-heading {
   font-weight: var(--regular-font-weight, 400);
 }
 
@@ -280,7 +282,7 @@ html {
 
 .card-text__link {
   line-height: var(--link-line-height, 100%);
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070); /*Задаём тень согласно макету.*/
+  text-shadow: 2px 2px 0 var(--link-shadow, #ff0070); /*Задаём тень согласно макету.*/
   text-decoration: none;
 }
 
@@ -312,6 +314,31 @@ html {
   gap: var(--gallary__list-gap, 0.625rem); /*10px.*/
 }
 
+.gallery__image-sunset {
+  height: 600px;
+  width: 1500px;
+}
+
+.gallery__image-icecream {
+  height: 600px;
+  width: 600px;
+}
+
+.gallery__image-tape {
+  height: 600px;
+  width: 900px;
+}
+
+.gallery__image-books {
+  height: 600px;
+  width: 600px;
+}
+
+.gallery__image-street {
+  height: 600px;
+  width: 900px;
+}
+
 .gallery__image {
   display: block; /*Помогло выровнять контент по макету!*/
   object-fit: cover; /*Подгоняем с помощью PerfectPixel к макету.*/
@@ -337,7 +364,7 @@ html {
 }
 
 .footer__title {
-  text-shadow: 2px 2px 0 var(--accent-color, #ff0070); /*Задаём тень согласно макету.*/
+  text-shadow: 2px 2px 0 var(--footer-shadow, #ff0070); /*Задаём тень согласно макету.*/
 }
 
 /*Медиавыражение для второго макета.*/
@@ -372,7 +399,8 @@ html {
   }
 
   .section-why__card-list,
-  .section-how__card-list {
+  .section-how__card-list,
+  .section-how__card-list-heading {
     padding-inline-start: 5px; /*Подгоняем под макет с PerfectPixel.*/
   }
 }
@@ -445,8 +473,31 @@ html {
   } /*Меняем одну колонку на три.*/
 
   .section__heading {
-    /*Располагаем заголовки трёх секций одинаково.*/
+    /*Располагаем заголовки трёх секций.*/
     grid-column: 1;
+  }
+
+  /*Перестроим грид-контейнер, так как заголовок списка карточек необходимо вынести из списка.*/
+  .section-how {
+    grid-template-rows: min-content min-content 1fr;
+  }
+
+  .section-how__heading {
+    grid-row: 1 / 3;
+    align-self: start;
+  }
+
+  .section-how__card-list-heading {
+    grid-column: 2 / 4;
+    grid-row: 1;
+  }
+
+  .section-how__card-list-heading_block {
+    display: block;
+  }
+
+  .section-how__card-list {
+    grid-row: 2 / 4;
   }
 
   .section__card-list {
