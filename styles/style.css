@@ -382,7 +382,10 @@ html {
   .title-general-styles {
     --title-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     /*Постепенно меняем шрифт от 120px до 157px.*/
-    font-size: var(--title-size, clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem));
+    font-size: var(
+      --title-size,
+      clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem)
+    );
   }
 
   .header__text {
