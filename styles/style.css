@@ -404,7 +404,7 @@ html {
   .section-why__card-list,
   .section-how__card-list,
   .section-how__card-list-heading {
-    padding-inline-start: 5px; /*Подгоняем под макет с PerfectPixel.*/
+    margin-inline-start: 5px; /*Подгоняем под макет с PerfectPixel.*/
   }
 }
 
@@ -493,10 +493,6 @@ html {
   .section-how__card-list-heading {
     grid-column: 2 / 4;
     grid-row: 1;
-  }
-
-  .section-how__card-list-heading_block {
-    display: block;
   }
 
   .section-how__card-list {
